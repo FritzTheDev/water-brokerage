@@ -1,11 +1,10 @@
-import { Response, Request, NextFunction } from "express";
 import { getRepository } from "typeorm";
 import * as jwt from "jsonwebtoken";
 import { compare } from "bcrypt";
 
-import { LoginDTO } from "../dtos";
+import { LoginDTO, CreateUserDTO } from "../dtos";
 import { User } from "../entities";
-import { BadCredentialsException } from "../exceptions";
+import { BadCredentialsException,  } from "../exceptions";
 
 const createToken = (user: User) => {
   const id = user.id;
@@ -16,6 +15,7 @@ export const login = async (userCreds: LoginDTO) => {
   const userRepo = getRepository(User);
   
   const user = await userRepo.findOne({ email: userCreds.email });
+  if (!user) throw new BadCredentialsException();
   try {
     if (!(await compare(userCreds.password, user.password))) {
       throw new BadCredentialsException();
@@ -27,6 +27,9 @@ export const login = async (userCreds: LoginDTO) => {
   return Promise.resolve(createToken(user));
 }
 
-export const registerService = async (userData: CreateUserDto) => {
+export const register = async (userData: CreateUserDTO) => {
+  const userRepo = getRepository(User);
 
+  const user = await userRepo.findOne({ email: userData.email });
+  if (user) throw new EmailInUseException();
 }

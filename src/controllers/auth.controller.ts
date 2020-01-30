@@ -23,6 +23,6 @@ export const registrationHandler = async (
 ) => {
   const userData: CreateUserDTO = request.body;
   try {
-    const token = await register
+    const token = await register()
   }
 };
