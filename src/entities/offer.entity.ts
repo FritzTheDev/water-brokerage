@@ -6,16 +6,16 @@ export class Offer {
   @PrimaryGeneratedColumn()
   public id: string;
 
-  @CreateDateColumn("date")
+  @CreateDateColumn()
   public createdDate: Date;
 
-  @Column("integer")
+  @Column()
   public offerPrice: Number;
 
-  @Column("integer")
+  @Column()
   public requestedVolume: Number;
 
-  @Column("date")
+  @Column()
   public availableDate: Date;
 
   @ManyToOne(
