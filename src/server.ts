@@ -45,7 +45,7 @@ const main = async () => {
   configurePassportLocal(passport);
 
   // routers
-  // app.use("/auth", authRoutes);
+  app.use("/auth", authRoutes);
   // app.use("/users", userRoutes);
   // app.use("/westlands-accounts", westlandsAccountRoutes);
   // app.use("/listings", listingRoutes);
