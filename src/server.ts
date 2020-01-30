@@ -1,10 +1,10 @@
 import "dotenv/config";
 import "reflect-metadata";
-import express from "express";
-import cors from "cors";
-import morgan from "morgan";
-import helmet from "helmet";
-import passport from "passport";
+import * as express from "express";
+import * as cors from "cors";
+import * as morgan from "morgan";
+import * as helmet from "helmet";
+import * as passport from "passport";
 import { createConnection } from "typeorm";
 
 import { ormConfig, validateEnv, configurePassportJwt, configurePassportLocal } from "./util";
@@ -45,10 +45,10 @@ const main = async () => {
   configurePassportLocal(passport);
 
   // routers
-  app.use("/auth", authRoutes);
-  app.use("/users", userRoutes);
-  app.use("/westlands-accounts", westlandsAccountRoutes);
-  app.use("/listings", listingRoutes);
+  // app.use("/auth", authRoutes);
+  // app.use("/users", userRoutes);
+  // app.use("/westlands-accounts", westlandsAccountRoutes);
+  // app.use("/listings", listingRoutes);
 
   // start the server
   app.listen(process.env.PORT, () => {
