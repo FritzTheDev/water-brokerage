@@ -7,6 +7,7 @@ import {
   OneToMany
 } from "typeorm";
 import { User } from "./user.entity";
+import { WestlandsAccount } from "./westlandsAccount.entity";
 
 @Entity()
 export class Listing {
@@ -26,13 +27,19 @@ export class Listing {
   public minimumVolume: number;
 
   @Column()
-  public requiredDate: Date;
+  public availableDate: Date;
 
   @ManyToOne(
     () => User,
     (user: User) => user.listings
   )
   public owner: User;
+
+  @ManyToOne(
+    () => WestlandsAccount,
+    (westlandsAccount: WestlandsAccount) => westlandsAccount.listings
+  )
+  public westlandsAccount: WestlandsAccount;
 
   @OneToMany(
     () => OffscreenCanvas,
