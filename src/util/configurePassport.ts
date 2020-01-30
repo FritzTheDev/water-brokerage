@@ -8,7 +8,7 @@ import { PassportStatic } from "passport";
 import { getRepository } from "typeorm";
 import { User } from "../entities";
 
-export const configurePassportJwt = (passport: PassportStatic) => {
+export const configurePassport = (passport: PassportStatic) => {
   const options: StrategyOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
     secretOrKey: process.env.JWT_SECRET

@@ -7,7 +7,7 @@ import * as helmet from "helmet";
 import * as passport from "passport";
 import { createConnection } from "typeorm";
 
-import { ormConfig, validateEnv, configurePassportJwt, configurePassportLocal } from "./util";
+import { ormConfig, validateEnv, configurePassport } from "./util";
 import {
   authRoutes,
   userRoutes,
