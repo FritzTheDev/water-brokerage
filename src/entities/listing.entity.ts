@@ -14,7 +14,7 @@ export class Listing {
   public id: string;
 
   @CreateDateColumn()
-  public createdDate: Date;
+  public created: Date;
 
   @Column()
   public askingPrice: number;

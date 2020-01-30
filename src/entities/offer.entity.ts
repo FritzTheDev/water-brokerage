@@ -7,7 +7,7 @@ export class Offer {
   public id: string;
 
   @CreateDateColumn()
-  public createdDate: Date;
+  public created: Date;
 
   @Column()
   public offerPrice: Number;
