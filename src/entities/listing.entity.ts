@@ -6,8 +6,7 @@ import {
   CreateDateColumn,
   OneToMany
 } from "typeorm";
-import { User } from "./user.entity";
-import { WestlandsAccount } from "./westlandsAccount.entity";
+import { User, WestlandsAccount, Offer } from ".";
 
 @Entity()
 export class Listing {
@@ -42,7 +41,7 @@ export class Listing {
   public westlandsAccount: WestlandsAccount;
 
   @OneToMany(
-    () => OffscreenCanvas,
+    () => Offer,
     (offer: Offer) => offer.listing
   )
   public offers: Offer[];
