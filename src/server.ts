@@ -7,7 +7,7 @@ import helmet from "helmet";
 import passport from "passport";
 import { createConnection } from "typeorm";
 
-import { ormConfig, validateEnv, configurePassport } from "./util";
+import { ormConfig, validateEnv, configurePassportJwt, configurePassportLocal } from "./util";
 import {
   authRoutes,
   userRoutes,
@@ -41,7 +41,8 @@ const main = async () => {
   app.use(express.json());
   // passport initialization & config
   app.use(passport.initialize());
-  configurePassport(passport);
+  configurePassportJwt(passport);
+  configurePassportLocal(passport);
 
   // routers
   app.use("/auth", authRoutes);
