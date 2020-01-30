@@ -20,6 +20,12 @@ export class Offer {
   public availableDate: Date;
 
   @ManyToOne(
+    () => WestlandsAccount,
+    (westlandsAccount: WestlandsAccount) => westlandsAccount.offers
+  )
+  public westlandsAccount: WestlandsAccount;
+
+  @ManyToOne(
     () => Listing,
     (listing: Listing) => listing.offers
   )
