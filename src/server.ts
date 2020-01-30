@@ -9,7 +9,7 @@ import { createConnection } from "typeorm";
 
 import { ormConfig } from "./util/ormConfig";
 import { validateEnv } from "./util/validateEnv";
-import { authRoutes, userRoutes, westlandsRoutes, listingRoutes } from "./routes";
+import { authRoutes, userRoutes, westlandsAccountRoutes, listingRoutes } from "./routes";
 
 
 const main = async () => {
@@ -27,8 +27,14 @@ const main = async () => {
   app.use(express.json());
   app.use(passport.initialize());
 
-  app.use(authRoutes);
-  app.use(userRoutes);
-  app.use(westlandsRoutes);
-  app.use(listingRoutes);
+  app.use('/auth', authRoutes);
+  app.use('/users', userRoutes);
+  app.use('/westlands-accounts', westlandsAccountRoutes);
+  app.use('/listings', listingRoutes);
+
+  app.listen(process.env.PORT, () => {
+    console.log(`Server is listening on port: ${process.env.PORT}`);
+  });
 }
+
+main();
