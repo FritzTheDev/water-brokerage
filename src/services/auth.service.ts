@@ -3,9 +3,9 @@ import { getRepository } from "typeorm";
 import * as jwt from "jsonwebtoken";
 import { compare } from "bcrypt";
 
-import { LoginDTO } from "../dtos/login.dto";
-import { User } from "../entities/user.entity";
-import { BadCredentialsException } from "../exception/badCredential.exception";
+import { LoginDTO } from "../dtos";
+import { User } from "../entities";
+import { BadCredentialsException } from "../exceptions";
 
 const createToken = (user: User) => {
   const id = user.id;
