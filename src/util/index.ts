@@ -1,1 +1,1 @@
-export {  ormConfig } from "./ormConfig";
+export { ormConfig } from "./ormConfig";
