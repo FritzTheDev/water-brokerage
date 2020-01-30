@@ -1,4 +1,3 @@
-import { compare } from "bcrypt";
 import {
   Strategy as JwtStrategy,
   StrategyOptions,
