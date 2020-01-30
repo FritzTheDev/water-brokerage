@@ -41,8 +41,7 @@ const main = async () => {
   app.use(express.json());
   // passport initialization & config
   app.use(passport.initialize());
-  configurePassportJwt(passport);
-  configurePassportLocal(passport);
+  configurePassport(passport);
 
   // routers
   app.use("/auth", authRoutes);
