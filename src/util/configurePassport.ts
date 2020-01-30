@@ -9,7 +9,7 @@ import { PassportStatic } from "passport";
 import { getRepository } from "typeorm";
 import { User } from "../entities";
 
-const verifyPassword = async (user: User, password: string): Boolean =>
+const verifyPassword = async (user: User, password: string): Promise<Boolean> =>
   await compare(password, user.password);
 
 export const configurePassportLocal = (passport: PassportStatic) => {
