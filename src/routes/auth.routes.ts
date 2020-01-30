@@ -1,13 +1,11 @@
 import Router from "express-promise-router";
-import { authenticate } from "passport";
 import { loginHandler } from "../controllers";
 import { validationMiddleware } from "../middleware/validation.middleware";
-import { LoginDTO } from "../dtos/login.dto";
-import { CreateUserDto } from "../dtos/createUser.dto";
+import { CreateUserDTO, LoginDTO } from "../dtos";
 
-const router = Router();
+const authRoutes = Router();
 
-router.post('/login',  validationMiddleware(LoginDTO), loginHandler);
-router.post('/register', validationMiddleware(CreateUserDto),  )
+authRoutes.post('/login',  validationMiddleware(LoginDTO), loginHandler);
+authRoutes.post('/register', validationMiddleware(CreateUserDTO),  )
 
-export { router as authRoutes };
+export { authRoutes };
